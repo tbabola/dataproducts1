@@ -1,0 +1,22 @@
+---
+title: "Leaflet Project"
+author: "T. Babola"
+date: "8/5/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+```{r, echo = FALSE}
+baltimoreLocs <- data.frame(
+    long=c(-76.621281,-76.615598,-76.592167), 
+    lat=c(39.329590,39.307108,39.297214), 
+    label=c("Johns Hopkins Univerity","Baltimore Penn Station","Johns Hopkins School of Medicine"))
+m <- leaflet() %>%
+    addTiles() %>%
+    addMarkers(baltimoreLocs$long,baltimoreLocs$lat, label = baltimoreLocs$label)
+m
+```
